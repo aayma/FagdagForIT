@@ -1,96 +1,87 @@
-
-
 <html>
-
-
+    
     <head>
-        <style>
-            .item1 {grid-area: topp;}
-            .item2 {grid-area: bilde;}
-            .item3 {grid-area: kortType;}
-            .item4 {grid-area: info;}
-            .item5 {grid-area: sitat;}
-
-            
-            .grid-container{
-                display: grid;
-                grid-template-areas: 
-                    'topp topp topp topp topp topp'
-                    'bilde bilde kortType kortType kortType kortType'
-                    'bilde bilde info info info info'
-                    'bilde bilde sitat sitat sitat sitat';
-                gap: 10px;
-                background-color: lightgray;
-                padding: 10px;
-            }
-
-            .grid-container > div {
-                background-color: lightslategray;
-                text-align: center;
-                padding: 30px 0;
-                font-size: 30px;
-
-            }
-
-            .grid-container > .item1{
-                font-size: 40px;
-            }
-
-            .grid-container > .item3{
-                font-size: 50px;
-            }
-
-            .bakgrunnForInput {
-                background-color: peachpuff;
-                padding: 10px;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
 
-    
     <body>
-
-
     
         <h1>Russekort generator</h1>
         <div class="bakgrunnForInput">
+            <!--<label for="Lillestrom">Lillestrom:</label><br>-->
+
+            <label for="skole">Skole</label><br>
+            <input type="radio" id="Lillestrom" value="Lillestrom">Lillestrom VGS
+            <input type="radio" id="Lorenskog" value="Lorenskog">Lorenskog VGS
+            <input type="radio" id="Mailand" value="Mailand">Mailand VGS
+            
+            <br><br>
+
             <label for="navn">Navn:</label><br>
             <input type="text" id="navn"><br><br>
 
             <label for="adresse">Adresse:</label><br>
             <input type="text" id="adresse"><br><br>
 
-            <label for="telefon">Telefonnumm:</label><br>
-            <input type="text" id="telefon"><br><br>
+            <label for="telefon">Telefonnummer:</label><br>
+            <input type="number" id="telefon"><br><br>
 
-            <label for="navn">Sitat:</label><br>
-            <input type="text" id="sitat"><br><br>
+            <form>
+                <select id="mySelect" onchange="selectFunction()">
+                <option>Rod</option>
+                <option>Blaa</option>
+                <option>Svart</option>
+                </select>
+            </form>
 
-            <button onclick="endreInfo()">Send inn</button>
+
+            <button id="hentSitat">Bytt sitat</button>
+            <button id="hentBilde" onclick="hentTilfeldigBilde">Bytt bilde</button>
+
+            <button onclick="endreInfo()">Send inn</button> 
+
+            
+
+        
 
         </div>
         <br>
-
+            
         <div class="grid-container">
-            <div class="item1" ><p id="skrivSkole"></div>
-            <div class="item2"><img src="bilder/bildeForRussekort.png" alt="Profil" width="300" height="300" rotation="45"></div>
-        
-            <div class="item3"><p id="skrivSkole"></p></div>
-            <div class="item4"> <p id="skrivNavn"></p> </div>
-            <div class="item5"> SITATER</div>
+            <div class="item1"><p id="velgSkole">Skole</p></div>
+            <div class="item2"><img id="image" width="200" height="300"></div>
+            <div class="item3"><p></p></div>
+            <div class="item4"><p id="skrivNavn">Ronald Donaldo</p> <p id="skrivAdress">742 Evergreen</p>  <p id="skrivNummer">1234124</p></div>
+            <div class="item5"><div id="output">Trykk knappen for sitat</div></div>
         </div>
+        
+        
+        <script src="sitatKode.js"> </script>
+
+
+
         <script>
                 function endreInfo() {
                     var a = document.getElementById("navn").value;
-                    document.getElementById("skrivNavn").innerHTML = a;
+                    document.getElementById("skrivNavn").innerHTML = a
 
+                    
                     var b = document.getElementById("adresse").value;
-                    document.getElementById("skrivSitat").innerHTML = b;
-
+                    document.getElementById("skrivAdress").innerHTML = b;
+                    
                     var c = document.getElementById("telefon").value;
                     document.getElementById("skrivNummer").innerHTML = c;
+
+                    var d = document.getElementById("skole").value;
+                    document.getElementById("velgSkole").innerHTML = c;
                 }
+
+
+
+            
+                    
         </script>
+
     </body>
 </html>
 

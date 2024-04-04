@@ -1,0 +1,39 @@
+
+            .item1 {grid-area: topp;}
+            .item2 {grid-area: bilde;}
+            .item3 {grid-area: kortType;}
+            .item4 {grid-area: info;}
+            .item5 {grid-area: sitat;}
+
+            
+            .grid-container{
+                display: grid;
+                grid-template-areas: 
+                    'topp topp topp topp topp topp'
+                    'bilde bilde kortType kortType kortType kortType'
+                    'bilde bilde info info info info'
+                    'bilde bilde sitat sitat sitat sitat'
+                    ;
+
+                    grid-template-columns: 24% 24% 24% 24%;
+                gap: 1px;
+                background-color: lightgray;
+                padding: 10px;
+            }
+
+            .grid-container > div {
+                background-color: lightslategray;
+                text-align:left;
+                padding: 10px 0;
+                font-size: 10px;
+
+            }
+
+           
+
+            .bakgrunnForInput {
+                background-color: peachpuff;
+                padding: 10px;
+            }
+
+
