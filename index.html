@@ -1,0 +1,96 @@
+
+
+<html>
+
+
+    <head>
+        <style>
+            .item1 {grid-area: topp;}
+            .item2 {grid-area: bilde;}
+            .item3 {grid-area: kortType;}
+            .item4 {grid-area: info;}
+            .item5 {grid-area: sitat;}
+
+            
+            .grid-container{
+                display: grid;
+                grid-template-areas: 
+                    'topp topp topp topp topp topp'
+                    'bilde bilde kortType kortType kortType kortType'
+                    'bilde bilde info info info info'
+                    'bilde bilde sitat sitat sitat sitat';
+                gap: 10px;
+                background-color: lightgray;
+                padding: 10px;
+            }
+
+            .grid-container > div {
+                background-color: lightslategray;
+                text-align: center;
+                padding: 30px 0;
+                font-size: 30px;
+
+            }
+
+            .grid-container > .item1{
+                font-size: 40px;
+            }
+
+            .grid-container > .item3{
+                font-size: 50px;
+            }
+
+            .bakgrunnForInput {
+                background-color: peachpuff;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    
+    <body>
+
+
+    
+        <h1>Russekort generator</h1>
+        <div class="bakgrunnForInput">
+            <label for="navn">Navn:</label><br>
+            <input type="text" id="navn"><br><br>
+
+            <label for="adresse">Adresse:</label><br>
+            <input type="text" id="adresse"><br><br>
+
+            <label for="telefon">Telefonnumm:</label><br>
+            <input type="text" id="telefon"><br><br>
+
+            <label for="navn">Sitat:</label><br>
+            <input type="text" id="sitat"><br><br>
+
+            <button onclick="endreInfo()">Send inn</button>
+
+        </div>
+        <br>
+
+        <div class="grid-container">
+            <div class="item1" ><p id="skrivSkole"></div>
+            <div class="item2"><img src="bilder/bildeForRussekort.png" alt="Profil" width="300" height="300" rotation="45"></div>
+        
+            <div class="item3"><p id="skrivSkole"></p></div>
+            <div class="item4"> <p id="skrivNavn"></p> </div>
+            <div class="item5"> SITATER</div>
+        </div>
+        <script>
+                function endreInfo() {
+                    var a = document.getElementById("navn").value;
+                    document.getElementById("skrivNavn").innerHTML = a;
+
+                    var b = document.getElementById("adresse").value;
+                    document.getElementById("skrivSitat").innerHTML = b;
+
+                    var c = document.getElementById("telefon").value;
+                    document.getElementById("skrivNummer").innerHTML = c;
+                }
+        </script>
+    </body>
+</html>
+
